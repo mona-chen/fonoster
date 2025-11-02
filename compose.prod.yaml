@@ -184,7 +184,7 @@ services:
     volumes:
       - ./config/envoy.yaml:/etc/envoy/envoy.yaml:ro
     ports:
-      - "8449:8449"
+      - 8449:8449
 
 volumes:
   db:

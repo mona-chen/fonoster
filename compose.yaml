@@ -104,7 +104,7 @@ services:
     volumes:
       - ./config/keys/public.pem:/etc/routr/keys/public.pem
 
-  # RTPEngine uses a range of ports to handle RTP traffic. Because exposing a large range of ports 
+  # RTPEngine uses a range of ports to handle RTP traffic. Because exposing a large range of ports
   # is not possible in Docker, we need to use network_mode: host.
   #
   # Unfortunately, network_mode: host is not supported for Windows or Mac.
@@ -118,7 +118,7 @@ services:
     image: fonoster/rtpengine:0.3.17
     restart: unless-stopped
     platform: linux/x86_64
-    ports: 
+    ports:
       - 10000-10100:10000-10100/udp
       - 8080:8080
     environment:
@@ -183,16 +183,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./config/envoy.yaml:/etc/envoy/envoy.yaml:ro
-      # If using letsencrypt, you need to mount the letsencrypt directory
-      # by uncommenting the following line and changing the domain name to match your domain.
-      #
-      # Symbolic links will not work here!!!
-      #
-      # - ./path/to/letsencrypt:/etc/letsencrypt:ro
     ports:
       - 8449:8449
-      # If using letsencrypt, you need to expose port 443 and remove the default HTTP port (8449)
-      # - 443:443
 
 volumes:
   db:
