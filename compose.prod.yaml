@@ -188,7 +188,7 @@ services:
       #
       # Symbolic links will not work here!!!
       #
-      - ./letsencrypt:/etc/letsencrypt:ro
+      - ./letsencrypt/certs:/etc/letsencrypt:ro
     ports:
       # - 8449:8449
       # If using letsencrypt, you need to expose port 443 and remove the default HTTP port (8449)
