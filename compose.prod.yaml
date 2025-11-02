@@ -192,7 +192,7 @@ services:
     ports:
       # - 8449:8449
       # If using letsencrypt, you need to expose port 443 and remove the default HTTP port (8449)
-      - 9443:443
+      - 9443:9443
 
 volumes:
   db:
