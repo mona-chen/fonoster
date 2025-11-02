@@ -90,9 +90,7 @@ services:
       - AUTOPILOT_UNSTRUCTURED_API_URL=${AUTOPILOT_UNSTRUCTURED_API_URL}
 
   routr:
-    build:
-      context: .
-      dockerfile: ./mods/routr/Dockerfile # Assuming routr has a Dockerfile; adjust if not
+    image: fonoster/routr-one:2.13.13
     restart: unless-stopped
     environment:
       DATABASE_URL: ${ROUTR_DATABASE_URL}
