@@ -20,7 +20,7 @@
 const { origin, hostname, port } = new URL(
   import.meta.env.DASHBOARD_API_URL ||
     process.env.DASHBOARD_API_URL ||
-    "http://voiceapi.ruut.chat:50051"
+    "https://voiceapi.ruut.chat"
 );
 
 export const FONOSTER_CLIENT_CONFIG = Object.freeze({
