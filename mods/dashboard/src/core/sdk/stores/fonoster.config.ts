@@ -20,7 +20,7 @@
 const { origin, hostname, port } = new URL(
   import.meta.env.DASHBOARD_API_URL ||
     process.env.DASHBOARD_API_URL ||
-    "http://apiserver:8449"
+    "http://apiserver:50051"
 );
 
 export const FONOSTER_CLIENT_CONFIG = Object.freeze({
