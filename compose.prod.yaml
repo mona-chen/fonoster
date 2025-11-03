@@ -100,17 +100,24 @@ services:
       LOGS_FORMAT: ${ROUTR_LOGS_FORMAT}
       LOGS_LEVEL: ${ROUTR_LOGS_LEVEL}
       LOGS_TRANSPORT: ${ROUTR_LOGS_TRANSPORT}
-      NATS_PUBLISHER_ENABLED: true
+      NATS_PUBLISHER_ENABLED: "true"
       NATS_PUBLISHER_URL: ${ROUTR_NATS_PUBLISHER_URL}
       RTPENGINE_HOST: ${ROUTR_RTPENGINE_HOST}
       START_INTERNAL_DB: "false"
       CONNECT_VERIFIER_PUBLIC_KEY_PATH: /etc/routr/keys/public.pem
+
+      # 👇 Force SIP listener bindings
+      BIND_ADDR: 0.0.0.0
+      TRANSPORT: udp,tcp
+      PORT: 5060
+      MEDIA_EXTERNAL_ADDR: ${ROUTR_EXTERNAL_ADDRS}
     expose:
       - 51907
       - 51908
     ports:
       - "5060:5060/udp"
-      - "5060-5063:5060-5063"
+      - "5060:5060/tcp"
+      - "5061-5063:5061-5063"
     volumes:
       - ./config/keys/public.pem:/etc/routr/keys/public.pem
 

@@ -29,7 +29,7 @@ const hostOrIPSchema = z
 
 const createTrunkRequestSchema = z.object({
   name: nameSchema,
-  sendRegister: z.boolean(),
+  sendRegister: z.boolean().optional(),
   inboundUri: hostOrIPSchema,
   uris: z.array(
     z.object({
